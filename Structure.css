@@ -1,0 +1,154 @@
+*{
+	font-family: 'Oxygen', sans-serif;
+}
+
+body{
+	margin: 0px;
+}
+
+.page-header{
+	position: static;
+	text-align: center;
+    width: 100%;
+}
+
+.navigation{	
+    position: relative;
+	left: calc(50% - 80px);
+	width: 33%;
+}
+
+.clock{
+	display: block;
+	position: relative;	
+	text-align: center;
+	top: 110px;
+	color: black;
+	height: 150px;
+	
+}
+
+.clock .phase{
+	position: relative;
+	font-size: 3em;	
+	top:-10px;
+}
+
+.clock .sessionsRemaining{
+	position: relative;
+	font-size: 1em;	
+	top:30px;
+}
+
+.clock .countDown{
+	position: relative;
+	font-size: 6em;	
+	top:-45px;
+	font-family: 'Droid Sans Mono';
+}
+
+#progressBar{
+	display: block;
+	position: absolute;	
+	top: -100px;
+	left: calc(50% - 190px);
+}
+
+.controls{
+	display: inline-block;
+	position: relative;
+	left: calc(50% - 150px);
+	top: 240px;
+	width: 100%;	
+    vertical-align: top;
+}
+
+.controls .btn-lg{
+	width:100px;
+	height:50px;
+}
+
+.settings{
+	display: none;
+	width: 50%;
+	position: relative;
+	left: 25%;
+	top: 50px;
+}
+
+.settings #label-work{
+	position: absolute;
+	top: -10px;
+	left: 0%
+}
+.settings #label-break{
+	position: absolute;
+	top: 50px;
+	left: 0%
+}
+.settings #label-reward{
+	position: absolute;
+	top: 110px;
+	left: 0%
+}
+.settings #label-session{
+	position: absolute;
+	top: 170px;
+	left: 0%
+}
+
+.settings #slider-work{
+	position: relative;
+	top: 20px;
+}
+
+.settings #slider-break{
+	position: relative;
+	top: 40px;
+}
+
+.settings #slider-reward{
+	position: relative;
+	top: 60px;
+}
+
+.settings #number-of-sessions{
+	position: relative;
+	top: 80px;
+}
+
+.settings #input-work{
+	position: relative;
+	left: 110%;
+}
+
+.settings #input-break{
+	position: relative;
+	left: 110%;
+	top: 20px;
+}
+
+.settings #input-reward{
+	position: relative;
+	left: 110%;
+	top: 40px;
+}
+
+.settings #input-sessions{
+	position: relative;
+	left: 110%;
+	top: 60px;
+}
+
+.settings #options{
+	position: absolute;
+	width: 150px;
+	top: 240px;
+	left: calc(50% - 60px);
+}
+
+.about{
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
+}

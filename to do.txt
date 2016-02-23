@@ -1,0 +1,5 @@
+Sessions remaining ui
+Estimated end time
+Retry phase
+Night mode
+Alarm
