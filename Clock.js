@@ -10,7 +10,7 @@ function update() {
 	var timer = null;
 	var currentProgress = 100;
 	var interval = 1000;
-	var sessionsRemaining=numberOfSessions;
+	var sessionsRemaining=4;
     $('.countDown').text((Math.floor(clock/60)>9?(""+Math.floor(clock/60)):("0"+Math.floor(clock/60)))+":"+(clock%60>9?""+clock%60:"0"+clock%60));		
 	document.getElementById("input-work").value=25;
 	document.getElementById("input-break").value=5;
@@ -125,7 +125,7 @@ function update() {
 		clock=workTime;
 		sessionsRemaining=numberOfSessions;
 		$('.phase').text("Work Time");
-		$('.sessionRemaining').text("Sessions Remaining: "+sessionsRemaining);
+		$('.sessionRemaining').text("Sessions Remaining: "+numberOfSessions);
     	$('.countDown').text((Math.floor(clock/60)>9?(""+Math.floor(clock/60)):("0"+Math.floor(clock/60)))+":"+(clock%60>9?""+clock%60:"0"+clock%60));		
 		$('.title').text("Focus Time: " + (Math.floor(clock/60)>9?(""+Math.floor(clock/60)):("0"+Math.floor(clock/60)))+":"+(clock%60>9?""+clock%60:"0"+clock%60));
 		$('.pause').removeClass('active');
@@ -166,8 +166,8 @@ function update() {
 		max:60,
 		step:1,
 		slide: function(event,ui){
-			document.getElementById("input-work").value=numberOfSessions=ui.value;
-			workTime=numberOfSessions=ui.value*60;
+			document.getElementById("input-work").value=ui.value;
+			workTime=ui.value*60;
 			resetTimer();
 		}
 	});
@@ -178,7 +178,7 @@ function update() {
 		max:60,
 		step:1,
 		slide: function(event,ui){
-			document.getElementById("input-break").value=numberOfSessions=ui.value;
+			document.getElementById("input-break").value=ui.value;
 			breakTime=ui.value*60;
 			resetTimer();
 		}
@@ -191,7 +191,7 @@ function update() {
 		max:60,
 		step:1,
 		slide: function(event,ui){
-			document.getElementById("input-reward").value=numberOfSessions=ui.value;
+			document.getElementById("input-reward").value=ui.value;
 			rewardTime=ui.value*60;
 			resetTimer();
 		}
