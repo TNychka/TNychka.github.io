@@ -1,21 +1,25 @@
 function update() {
+    "use strict";
 	var workTime = 1500;
 	var breakTime = 300;
 	var rewardTime = 3600;
 	var numberOfSessions = 4;
 	var currentSession = 0; //work 0, break 1, reward 2
-	var continuous=0;
-	var clock=workTime;
+	var continuous = 0;
+	var clock = workTime;
 	var currentSessionTime = workTime;
 	var timer = null;
 	var currentProgress = 100;
 	var interval = 1000;
-	var sessionsRemaining=4;
-    $('.countDown').text((Math.floor(clock/60)>9?(""+Math.floor(clock/60)):("0"+Math.floor(clock/60)))+":"+(clock%60>9?""+clock%60:"0"+clock%60));		
-	document.getElementById("input-work").value=25;
-	document.getElementById("input-break").value=5;
-	document.getElementById("input-reward").value=30;
-	document.getElementById("input-sessions").value=4;
+	var sessionsRemaining = 4;
+    
+    var alarm = new Audio('A-Tone-His_Self-1266414414.wav');
+    
+    $('.countDown').text((Math.floor(clock/60)>9 ? (""+Math.floor(clock/60)) : ("0"+Math.floor(clock/60))) + ":" + (clock%60>9 ? "" + clock%60 : "0" + clock%60));		
+	document.getElementById("input-work").value = 25;
+	document.getElementById("input-break").value = 5;
+	document.getElementById("input-reward").value = 30;
+	document.getElementById("input-sessions").value = 4;
 	
 	var canvas = document.getElementById('progressBar');
 	var ctx = canvas.getContext('2d');
@@ -37,15 +41,15 @@ function update() {
 	updateProgress();
 
 	function clockUpdate(){
-		if(clock==0){
+		if(clock == 0){
 			switch(currentSession){
 				case 0:
 					sessionsRemaining--;
-					currentSession=1;
-					currentSessionTime=breakTime;
-					clock=breakTime;
+					currentSession = 1;
+					currentSessionTime = breakTime;
+					clock = breakTime;
 					$('.phase').text('Break Time');
-					$('.sessionRemaining').text("Sessions Remaining: "+sessionsRemaining);
+					$('.sessionRemaining').text("Sessions Remaining: " + sessionsRemaining);
 				break;
 				case 1:
 					if(sessionsRemaining>0){
@@ -83,8 +87,9 @@ function update() {
 	};
 	
 	function updateProgress(){
-		if((clock==0&&currentSession==0)||(currentSession!=0&&clock==currentSessionTime)){
+		if((clock==0&&currentSession==0)||(currentSession != 0 && clock == currentSessionTime)){
 			ctx.clearRect(0,0,370,370);
+            alarm.play()
 		}else{
 			ctx.putImageData(imd,0,0);
 			ctx.beginPath();
@@ -97,7 +102,11 @@ function update() {
 		if(!timer){
 			timer=setInterval(clockUpdate, interval);
 			$('.play').addClass('active');
+            $('.play').blur();
 			$('.pause').removeClass('active');
+            $('.pause').blur();
+            $('.reset').removeClass('active');
+            $('.reset').blur();
 		}
 	});
 	
@@ -113,7 +122,11 @@ function update() {
 			clearInterval(timer);
 			timer=null;
 			$('.pause').addClass('active');
+            $('.pause').blur();
 			$('.play').removeClass('active');
+            $('.play').blur();
+            $('.reset').removeClass('active');
+            $('.reset').blur();
 		}
 	}
 	
@@ -129,7 +142,11 @@ function update() {
     	$('.countDown').text((Math.floor(clock/60)>9?(""+Math.floor(clock/60)):("0"+Math.floor(clock/60)))+":"+(clock%60>9?""+clock%60:"0"+clock%60));		
 		$('.title').text("Focus Time: " + (Math.floor(clock/60)>9?(""+Math.floor(clock/60)):("0"+Math.floor(clock/60)))+":"+(clock%60>9?""+clock%60:"0"+clock%60));
 		$('.pause').removeClass('active');
-		$('.play').removeClass('active');
+        $('.pause').blur();
+        $('.play').removeClass('active')
+        $('.play').blur();
+        $('.reset').removeClass('active')
+        $('.reset').blur();
 		currentProgress=100;
 		updateProgress();
 	}
