@@ -5,6 +5,8 @@
 body{
 	margin: 0px;
     min-width: 500px;
+    background-color: white;
+    color: black;
 }
 
 .page-header{
@@ -24,7 +26,6 @@ body{
 	position: relative;	
 	text-align: center;
 	top: 110px;
-	color: black;
 	height: 150px;
 	
 }

@@ -41,7 +41,7 @@ function update() {
 	updateProgress();
 
 	function clockUpdate(){
-		if(clock == 0){
+		if (clock === 0){
 			switch(currentSession){
 				case 0: //work
 					sessionsRemaining--;
@@ -70,14 +70,14 @@ function update() {
 					clock=rewardTime;
 				break;
 			}
-			if(continuous==0){
+			if (continuous === 0){
 				pause();
 			}
-		}else{
+		} else{
 			clock--;
-			if(currentSession==0){
+			if (currentSession === 0){
 				currentProgress=clock/currentSessionTime;
-			}else{
+			} else{
 				currentProgress=(currentSessionTime-clock)/currentSessionTime;
 			}
 		}	
@@ -274,13 +274,24 @@ function update() {
 		resetTimer();
 	});	
 	
-	$("#checkbox").bind("change", function() {
+	$('[name="continuous"]').bind("change", function() {
 		if(continuous==0){
 			continuous=1;
 		}else{
 			continuous=0;
 		}
 	});	
+    
+    var nightMode = false;
+    $('[name="nightmode"]').bind("change", function() {
+        if (nightMode) {
+            $("body").css({"background-color":"white", "color":"black"});
+        } else {
+            $("body").css({"background-color":"black", "color":"white"});
+        }
+        nightMode = !nightMode;
+        }
+    );	
 }
 
 $(document).ready(update);
