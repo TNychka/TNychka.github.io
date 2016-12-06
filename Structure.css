@@ -15,7 +15,7 @@ body{
     width: 100%;
 }
 
-.navigation{	
+.navigation{
     position: relative;
 	left: calc(50% - 80px);
 	width: 33%;
@@ -23,35 +23,35 @@ body{
 
 .clock{
 	display: block;
-	position: relative;	
+	position: relative;
 	text-align: center;
 	top: 110px;
 	height: 150px;
-	
+
 }
 
 .clock .phase{
 	position: relative;
-	font-size: 3em;	
+	font-size: 3em;
 	top:-10px;
 }
 
 .clock .sessionsRemaining{
 	position: relative;
-	font-size: 1em;	
+	font-size: 1em;
 	top:30px;
 }
 
 .clock .countDown{
 	position: relative;
-	font-size: 6em;	
+	font-size: 6em;
 	top:-45px;
 	font-family: 'Droid Sans Mono';
 }
 
 #progressBar{
 	display: block;
-	position: absolute;	
+	position: absolute;
 	top: -100px;
 	left: calc(50% - 190px);
 }
@@ -62,7 +62,7 @@ body{
 	justify-content: center;
     top: 250px;
     width: 100%;
-    
+
 }
 
 .controls .btn-lg{
@@ -121,23 +121,27 @@ body{
 
 .settings #input-work{
 	position: relative;
+	color: black;
 	left: 110%;
 }
 
 .settings #input-break{
 	position: relative;
+	color: black;
 	left: 110%;
 	top: 20px;
 }
 
 .settings #input-reward{
 	position: relative;
+	color: black;
 	left: 110%;
 	top: 40px;
 }
 
 .settings #input-sessions{
 	position: relative;
+	color: black;
 	left: 110%;
 	top: 60px;
 }
