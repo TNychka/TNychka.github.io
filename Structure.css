@@ -4,6 +4,7 @@
 
 body{
 	margin: 0px;
+    min-width: 500px;
 }
 
 .page-header{
@@ -55,12 +56,12 @@ body{
 }
 
 .controls{
-	display: inline-block;
-	position: relative;
-	left: calc(50% - 150px);
-	top: 240px;
-	width: 100%;	
-    vertical-align: top;
+	display: flex;
+    position: relative;
+	justify-content: center;
+    top: 250px;
+    width: 100%;
+    
 }
 
 .controls .btn-lg{
@@ -70,8 +71,8 @@ body{
 
 .settings{
 	display: none;
-	width: 50%;
 	position: relative;
+	width: 50%;
 	left: 25%;
 	top: 50px;
 }

@@ -43,7 +43,7 @@ function update() {
 	function clockUpdate(){
 		if(clock == 0){
 			switch(currentSession){
-				case 0:
+				case 0: //work
 					sessionsRemaining--;
 					currentSession = 1;
 					currentSessionTime = breakTime;
@@ -51,7 +51,7 @@ function update() {
 					$('.phase').text('Break Time');
 					$('.sessionRemaining').text("Sessions Remaining: " + sessionsRemaining);
 				break;
-				case 1:
+				case 1: //break
 					if(sessionsRemaining>0){
 						currentSession=0;
 						currentSessionTime=workTime;
@@ -64,7 +64,7 @@ function update() {
 						$('.phase').text('Reward Time');
 					}
 				break;
-				case 2:
+				case 2: //reward
 					resetTimer();
 					currentSessionTime=rewardTime;
 					clock=rewardTime;
@@ -81,8 +81,7 @@ function update() {
 				currentProgress=(currentSessionTime-clock)/currentSessionTime;
 			}
 		}	
-		$('.countDown').text((Math.floor(clock/60)>9?(""+Math.floor(clock/60)):("0"+Math.floor(clock/60)))+":"+(clock%60>9?""+clock%60:"0"+clock%60));		
-		$('.title').text("Focus Time: " + (Math.floor(clock/60)>9?(""+Math.floor(clock/60)):("0"+Math.floor(clock/60)))+":"+(clock%60>9?""+clock%60:"0"+clock%60));
+		updateText();
 		updateProgress();		
 	};
 	
@@ -97,6 +96,11 @@ function update() {
 			ctx.stroke();
 		}
 	}
+    
+    function updateText() {
+        $('.countDown').text((Math.floor(clock/60)>9?(""+Math.floor(clock/60)):("0"+Math.floor(clock/60)))+":"+(clock%60>9?""+clock%60:"0"+clock%60));		
+		$('.title').text("Focus Time: " + (Math.floor(clock/60)>9 ? (""+Math.floor(clock/60)) : ("0"+Math.floor(clock/60)))+":"+(clock%60>9?""+clock%60:"0"+clock%60));
+    }
 	
 	$('.play').click(function(){
 		if(!timer){
@@ -111,6 +115,26 @@ function update() {
 	});
 	
 	$('.pause').click(pause);
+    
+    $('.retry').click(function(){
+		$(this).blur();
+		pause();
+        switch(currentSession){
+				case 0:
+					currentSessionTime = workTime;
+					clock = workTime;
+				break;
+				case 1:
+					currentSessionTime = breakTime;
+					clock = breakTime;
+				break;
+				case 2:
+					currentSessionTime=rewardTime;
+					clock=rewardTime;
+				break;
+			}
+        updateText();
+	});
 	
 	$('.reset').click(function(){
 		$(this).blur();
