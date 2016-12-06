@@ -12,15 +12,15 @@ function update() {
 	var currentProgress = 100;
 	var interval = 1000;
 	var sessionsRemaining = 4;
-    
-    var alarm = new Audio('A-Tone-His_Self-1266414414.wav');
-    
-    $('.countDown').text((Math.floor(clock/60)>9 ? (""+Math.floor(clock/60)) : ("0"+Math.floor(clock/60))) + ":" + (clock%60>9 ? "" + clock%60 : "0" + clock%60));		
+
+    var alarm = new Audio('src/A-Tone-His_Self-1266414414.wav');
+
+    $('.countDown').text((Math.floor(clock/60)>9 ? (""+Math.floor(clock/60)) : ("0"+Math.floor(clock/60))) + ":" + (clock%60>9 ? "" + clock%60 : "0" + clock%60));
 	document.getElementById("input-work").value = 25;
 	document.getElementById("input-break").value = 5;
 	document.getElementById("input-reward").value = 30;
 	document.getElementById("input-sessions").value = 4;
-	
+
 	var canvas = document.getElementById('progressBar');
 	var ctx = canvas.getContext('2d');
 	var imd = null;
@@ -80,11 +80,11 @@ function update() {
 			} else{
 				currentProgress=(currentSessionTime-clock)/currentSessionTime;
 			}
-		}	
+		}
 		updateText();
-		updateProgress();		
+		updateProgress();
 	};
-	
+
 	function updateProgress(){
 		if((clock==0&&currentSession==0)||(currentSession != 0 && clock == currentSessionTime)){
 			ctx.clearRect(0,0,370,370);
@@ -96,12 +96,12 @@ function update() {
 			ctx.stroke();
 		}
 	}
-    
+
     function updateText() {
-        $('.countDown').text((Math.floor(clock/60)>9?(""+Math.floor(clock/60)):("0"+Math.floor(clock/60)))+":"+(clock%60>9?""+clock%60:"0"+clock%60));		
+        $('.countDown').text((Math.floor(clock/60)>9?(""+Math.floor(clock/60)):("0"+Math.floor(clock/60)))+":"+(clock%60>9?""+clock%60:"0"+clock%60));
 		$('.title').text("Focus Time: " + (Math.floor(clock/60)>9 ? (""+Math.floor(clock/60)) : ("0"+Math.floor(clock/60)))+":"+(clock%60>9?""+clock%60:"0"+clock%60));
     }
-	
+
 	$('.play').click(function(){
 		if(!timer){
 			timer=setInterval(clockUpdate, interval);
@@ -113,9 +113,9 @@ function update() {
             $('.reset').blur();
 		}
 	});
-	
+
 	$('.pause').click(pause);
-    
+
     $('.retry').click(function(){
 		$(this).blur();
 		pause();
@@ -135,12 +135,12 @@ function update() {
 			}
         updateText();
 	});
-	
+
 	$('.reset').click(function(){
 		$(this).blur();
 		resetTimer();
 	});
-	
+
 	function pause(){
 		if(timer){
 			clearInterval(timer);
@@ -153,17 +153,17 @@ function update() {
             $('.reset').blur();
 		}
 	}
-	
-	function resetTimer(){		
+
+	function resetTimer(){
 		clearInterval(timer);
 		timer=null;
 		currentSession=0;
-		currentSessionTime=workTime;	
+		currentSessionTime=workTime;
 		clock=workTime;
 		sessionsRemaining=numberOfSessions;
 		$('.phase').text("Work Time");
 		$('.sessionRemaining').text("Sessions Remaining: "+numberOfSessions);
-    	$('.countDown').text((Math.floor(clock/60)>9?(""+Math.floor(clock/60)):("0"+Math.floor(clock/60)))+":"+(clock%60>9?""+clock%60:"0"+clock%60));		
+    	$('.countDown').text((Math.floor(clock/60)>9?(""+Math.floor(clock/60)):("0"+Math.floor(clock/60)))+":"+(clock%60>9?""+clock%60:"0"+clock%60));
 		$('.title').text("Focus Time: " + (Math.floor(clock/60)>9?(""+Math.floor(clock/60)):("0"+Math.floor(clock/60)))+":"+(clock%60>9?""+clock%60:"0"+clock%60));
 		$('.pause').removeClass('active');
         $('.pause').blur();
@@ -174,9 +174,9 @@ function update() {
 		currentProgress=100;
 		updateProgress();
 	}
-	
+
 	var settings=0;
-	
+
 	$('.TimerNavButton').click(function(){
 		if(settings!=0){
 			$('.TimerNavButton').toggleClass('active');
@@ -187,7 +187,7 @@ function update() {
 			$(".settings").fadeOut("fast");
 		}
 	});
-	
+
 	$('.SettingsNavButton').click(function(){
 		if(settings!=1){
 			pause();
@@ -199,7 +199,7 @@ function update() {
 			$(".settings").delay(230).fadeIn("fast");
 		}
 	});
-	
+
 	$("#slider-work" ).slider(
 	{
 		value:25,
@@ -224,7 +224,7 @@ function update() {
 			resetTimer();
 		}
 	});
-	
+
 	$("#slider-reward" ).slider(
 	{
 		value:30,
@@ -237,7 +237,7 @@ function update() {
 			resetTimer();
 		}
 	});
-	
+
 	$("#number-of-sessions" ).slider(
 	{
 		value:4,
@@ -248,40 +248,40 @@ function update() {
 			document.getElementById("input-sessions").value=numberOfSessions=ui.value;
 			resetTimer();
 		}
-	});	
-	
+	});
+
 	$("#input-work").bind("change paste", function() {
 		workTime=document.getElementById("input-work").value*60;
 		$("#slider-work").slider('value',document.getElementById("input-work").value);
 		resetTimer();
 	});
-	
+
 	$("#input-break").bind("change paste", function() {
 		breakTime=document.getElementById("input-break").value*60;
 		$("#slider-break").slider('value',document.getElementById("input-break").value);
 		resetTimer();
-	});	
-	
+	});
+
 	$("#input-reward").bind("change paste", function() {
 		rewardTime=document.getElementById("input-reward").value*60;
 		$("#slider-reward").slider('value',document.getElementById("input-reward").value);
 		resetTimer();
-	});	
-	
+	});
+
 	$("#input-sessions").bind("change paste", function() {
 		numberOfSessions=document.getElementById("input-sesssions").value*60;
 		$("#slider-sessions").slider('value',document.getElementById("input-sessions").value);
 		resetTimer();
-	});	
-	
+	});
+
 	$('[name="continuous"]').bind("change", function() {
 		if(continuous==0){
 			continuous=1;
 		}else{
 			continuous=0;
 		}
-	});	
-    
+	});
+
     var nightMode = false;
     $('[name="nightmode"]').bind("change", function() {
         if (nightMode) {
@@ -291,7 +291,7 @@ function update() {
         }
         nightMode = !nightMode;
         }
-    );	
+    );
 }
 
 $(document).ready(update);
