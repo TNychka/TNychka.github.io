@@ -66,8 +66,6 @@ function update() {
 				break;
 				case 2: //reward
 					resetTimer();
-					currentSessionTime=rewardTime;
-					clock=rewardTime;
 				break;
 			}
 			if (continuous === 0){
