@@ -110,9 +110,17 @@ function update() {
     function setEstimatedTimeRemaining() {
         var endTime = new Date();
         endTime.setSeconds(endTime.getSeconds() + getTimeRemaining());
-        var hour = endTime.getHours() > 12 ? endTime.getHours() - 12 : endTime.getHours();
-        var ampm = endTime.getHours() >= 12 ? 'pm' : 'am';
-        $('.estimatedEndTime').text("Estimated End Time: " + hour + ":" + endTime.getMinutes() + " " + ampm);
+        $('.estimatedEndTime').text("Estimated End Time: " + formatAMPM(endTime));
+    }
+
+    function formatAMPM(date) {
+        var hours = date.getHours();
+        var minutes = date.getMinutes();
+        var ampm = hours >= 12 ? 'pm' : 'am';
+        hours = hours % 12;
+        hours = hours ? hours : 12; // the hour '0' should be '12'
+        minutes = minutes < 10 ? '0'+minutes : minutes;
+        return hours + ':' + minutes + ' ' + ampm;
     }
 
     function getTimeRemaining() {
