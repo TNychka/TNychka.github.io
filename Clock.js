@@ -267,7 +267,7 @@ function update() {
 	});
 
 	$("#input-sessions").bind("change paste", function() {
-		numberOfSessions=document.getElementById("input-sesssions").value*60;
+		numberOfSessions=document.getElementById("input-sessions").value*60;
 		$("#slider-sessions").slider('value',document.getElementById("input-sessions").value);
 		resetTimer();
 	});
