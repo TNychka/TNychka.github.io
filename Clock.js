@@ -57,8 +57,7 @@ function update() {
                     $('.phase').text('Break Time');
                     $('.sessionRemaining').text("Sessions Remaining: " + sessionsRemaining);
                     break;
-                case session.BREAK
-                : //break
+                case session.BREAK: //break
                     if(sessionsRemaining>0){
                         currentSession = session.WORK;
                         currentSessionTime=workTime;
@@ -312,7 +311,7 @@ function update() {
     });
 
     $("#input-sessions").bind("change paste", function() {
-        numberOfSessions=document.getElementById("input-sessions").value*60;
+        numberOfSessions=document.getElementById("input-sessions").value;
         $("#slider-sessions").slider('value',document.getElementById("input-sessions").value);
         resetTimer();
     });
