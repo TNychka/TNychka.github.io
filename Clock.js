@@ -5,7 +5,7 @@ function update() {
 	var rewardTime = 3600;
 	var numberOfSessions = 4;
 	var currentSession = 0; //work 0, break 1, reward 2
-	var continuous = 0;
+	var continuous = false;
 	var clock = workTime;
 	var currentSessionTime = workTime;
 	var timer = null;
@@ -68,7 +68,7 @@ function update() {
 					resetTimer();
 				break;
 			}
-			if (continuous === 0){
+			if (continuous === false){
 				pause();
 			}
 		} else{
@@ -273,11 +273,7 @@ function update() {
 	});
 
 	$('[name="continuous"]').bind("change", function() {
-		if(continuous==0){
-			continuous=1;
-		}else{
-			continuous=0;
-		}
+		continuous = !continuous;
 	});
 
     var nightMode = false;
