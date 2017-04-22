@@ -104,6 +104,7 @@ function update() {
     function updateText() {
         var endTime = getTimeRemaining();
         $('.countDown').text((Math.floor(clock/60)>9?(""+Math.floor(clock/60)):("0"+Math.floor(clock/60)))+":"+(clock%60>9?""+clock%60:"0"+clock%60));
+        $('.title').text("Focus Time: " + (Math.floor(clock/60)>9 ? (""+Math.floor(clock/60)) : ("0"+Math.floor(clock/60)))+":"+(clock%60>9?""+clock%60:"0"+clock%60));
         $('.estimatedEndTime').text("Estimated End Time: " + endTime);
     }
 
