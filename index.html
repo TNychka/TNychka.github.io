@@ -1,81 +1,83 @@
 <!DOCTYPE html>
 <html>
 
-  <head>  
+<head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-	
-	<link href='https://fonts.googleapis.com/css?family=Oxygen:700,400' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
-	
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-	<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
-	<link href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.10/themes/ui-lightness/jquery-ui.css" rel="stylesheet" type="text/css">
-      
-	<link rel="icon" href="src/Clock-PNG-File.png">
-      
-	<link type="text/css" rel="stylesheet" href="Structure.css"/>
-  </head>  
-  
-  <body> 
-	
-	<title class="title">Focus Time: 25:00</title>
-  
-      
-	<div class="page-header">
-	  <h1>Focus Time</h1>
-	</div>
-	
-	<div class="navigation">
-	  <ul class="nav nav-pills">
-	    <li class="active TimerNavButton"><a href="#">Timer</a></li>
-	    <li class="SettingsNavButton"><a href="#">Settings</a></li>
-	  </ul>
-	</div>
-	
-	<div class="clock">
-	  <p class="phase">Work Time</p>
-	  <p class="countDown"></p>	
-	  <p class="sessionRemaining">Sessions Remaining: 4</p>
-	  <canvas id="progressBar" width=370 height=370></canvas>
-	</div>
-	
-	<div class="settings">
-	  <div class="sliders">	  
-	    <label id="label-work">Work Length</label>
-	    <div id="slider-work"></div>
-		<input id ="input-work" type="number" name="quantity" min="1" max="60">
-	    
-		<label id="label-break">Break Length</label>
-		<div id="slider-break"></div>
-		<input id ="input-break" type="number" name="quantity" min="1" max="60">
-		
-		<label id="label-reward">Reward Length</label>
-		<div id="slider-reward"></div>
-		<input id ="input-reward" type="number" name="quantity" min="1" max="60">
-		
-		<label id="label-session">Number of Sessions</label>
-		<div id="number-of-sessions"></div>
-		<input id ="input-sessions" type="number" name="quantity" min="1" max="10">
-	 
-	 </div>
-	  <div id="options">
-	    <input id="checkbox" type="checkbox" name="continuous" value="cont"> Continuous Mode<br>
+
+    <link href='https://fonts.googleapis.com/css?family=Oxygen:700,400' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    <link href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.10/themes/ui-lightness/jquery-ui.css" rel="stylesheet" type="text/css">
+
+    <link rel="icon" href="src/Clock-PNG-File.png">
+
+    <link type="text/css" rel="stylesheet" href="Structure.css"/>
+</head>
+
+<body>
+
+<title class="title">Focus Time: 25:00</title>
+
+
+<div class="page-header">
+    <h1>Focus Time</h1>
+</div>
+
+<div class="navigation">
+    <ul class="nav nav-pills">
+        <li class="active TimerNavButton"><a href="#">Timer</a></li>
+        <li class="SettingsNavButton"><a href="#">Settings</a></li>
+    </ul>
+</div>
+
+<div class="clock">
+    <p class="phase">Work Time</p>
+    <p class="countDown"></p>
+    <p class="sessionRemaining">Sessions Remaining: 4</p>
+    <p class="estimatedEndTime">Estimated End Time:</p>
+    <canvas id="progressBar" width=370 height=370></canvas>
+</div>
+
+<div class="settings">
+    <div class="sliders">
+        <label id="label-work">Work Length</label>
+        <div id="slider-work"></div>
+        <input id ="input-work" type="number" name="quantity" min="1" max="60">
+
+        <label id="label-break">Break Length</label>
+        <div id="slider-break"></div>
+        <input id ="input-break" type="number" name="quantity" min="1" max="60">
+
+        <label id="label-reward">Reward Length</label>
+        <div id="slider-reward"></div>
+        <input id ="input-reward" type="number" name="quantity" min="1" max="60">
+
+        <label id="label-session">Number of Sessions</label>
+        <div id="number-of-sessions"></div>
+        <input id ="input-sessions" type="number" name="quantity" min="1" max="10">
+
+    </div>
+    <div id="options">
+        <input id="checkbox" type="checkbox" name="continuous" value="cont"> Continuous Mode<br>
         <input id="checkbox" type="checkbox" name="nightmode" value="cont"> Night Mode<br>
-	  </div>
-	</div>
-	
-	<div class="controls">
-	  <div class="btn-group" style="text-align:center">
-	    <button type="button" class="play btn btn-primary btn-lg">Start</button>
-	    <button type="button" class="pause btn btn-primary btn-lg">Pause</button>
+    </div>
+</div>
+
+<div class="controls">
+    <div class="btn-group" style="text-align:center">
+        <button type="button" class="play btn btn-primary btn-lg">Start</button>
+        <button type="button" class="pause btn btn-primary btn-lg">Pause</button>
         <button type="button" class="retry btn btn-primary btn-lg">Retry</button>
-	    <button type="button" class="reset btn btn-primary btn-lg">Reset</button>
-	  </div>
-	</div>	
+        <button type="button" class="reset btn btn-primary btn-lg">Reset</button>
+    </div>
+</div>
 
-      
-  </body>
+<a class="about" href="http://www.tnychka.me">About</a>
 
-  <script type="text/javascript" src="Clock.js"></script>
+</body>
+
+<script type="text/javascript" src="Clock.js"></script>
 
 </html>

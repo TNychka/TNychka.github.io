@@ -44,6 +44,7 @@ function update() {
     var quart = Math.PI / 2;
     imd = ctx.getImageData(0, 0, 370, 370);
     updateProgress();
+    setEstimatedTimeRemaining();
 
     function clockUpdate(){
         if (clock === 0){
@@ -102,17 +103,47 @@ function update() {
     }
 
     function updateText() {
-        var endTime = getTimeRemaining();
         $('.countDown').text((Math.floor(clock/60)>9?(""+Math.floor(clock/60)):("0"+Math.floor(clock/60)))+":"+(clock%60>9?""+clock%60:"0"+clock%60));
         $('.title').text("Focus Time: " + (Math.floor(clock/60)>9 ? (""+Math.floor(clock/60)) : ("0"+Math.floor(clock/60)))+":"+(clock%60>9?""+clock%60:"0"+clock%60));
-        $('.estimatedEndTime').text("Estimated End Time: " + endTime);
+    }
+
+
+    function setEstimatedTimeRemaining() {
+        var endTime = new Date();
+        endTime.setSeconds(endTime.getSeconds() + getTimeRemaining());
+        var hour = endTime.getHours() > 12 ? endTime.getHours() - 12 : endTime.getHours();
+        var ampm = endTime.getHours() >= 12 ? 'pm' : 'am';
+        $('.estimatedEndTime').text("Estimated End Time: " + hour + ":" + endTime.getMinutes() + " " + ampm);
     }
 
     function getTimeRemaining() {
-
+		var secondsRemaining = 0;
+		switch (currentSession) {
+			case session.WORK:
+                secondsRemaining += clock;
+                secondsRemaining += rewardTime;
+                secondsRemaining += breakTime;
+                if (sessionsRemaining == 0) {
+                	return secondsRemaining;
+				} else {
+                    secondsRemaining += (workTime + breakTime)*(sessionsRemaining-1);
+                    return secondsRemaining;
+				}
+				break;
+			case session.BREAK:
+				secondsRemaining += currentSessionTime-clock; //Time on break clock
+                secondsRemaining += rewardTime; //Time in reward
+                secondsRemaining += (workTime + breakTime)*sessionsRemaining;//Number of blocks of work and break left
+				return secondsRemaining;
+				break;
+			case session.REWARD:
+				return (currentSessionTime-clock); //Time on reward clock
+				break;
+		}
     }
 
     $('.play').click(function(){
+        setEstimatedTimeRemaining();
         if(!timer){
             timer=setInterval(clockUpdate, 1000);
             $('.play').addClass('active');
@@ -152,6 +183,7 @@ function update() {
     });
 
     function pause(){
+        setEstimatedTimeRemaining();
         if(timer){
             clearInterval(timer);
             timer=null;
@@ -183,6 +215,7 @@ function update() {
         $('.reset').blur();
         fractionTimeRemaining=100;
         updateProgress();
+        setEstimatedTimeRemaining();
     }
 
     var settings=0;

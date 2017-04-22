@@ -27,7 +27,6 @@ body{
 	text-align: center;
 	top: 110px;
 	height: 150px;
-
 }
 
 .clock .phase{
@@ -36,18 +35,25 @@ body{
 	top:-10px;
 }
 
-.clock .sessionsRemaining{
-	position: relative;
-	font-size: 1em;
-	top:30px;
-}
-
 .clock .countDown{
 	position: relative;
 	font-size: 6em;
 	top:-45px;
 	font-family: 'Droid Sans Mono';
 }
+
+.clock .estimatedEndTime{
+    position: relative;
+    font-size: 1em;
+    top:-50px;
+}
+
+.clock .sessionsRemaining{
+    position: relative;
+    font-size: 1em;
+    top:-10px;
+}
+
 
 #progressBar{
 	display: block;
@@ -155,6 +161,7 @@ body{
 
 .about{
 	position: fixed;
-	bottom: 0px;
+    left: 10px;
+	bottom: 3px;
 	width: 100%;
 }
