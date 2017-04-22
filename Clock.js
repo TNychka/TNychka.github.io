@@ -288,14 +288,15 @@ function update() {
             }
         });
 
-    $("#number-of-sessions" ).slider(
+    $("#slider-sessions" ).slider(
         {
             value:4,
             min:1,
             max:10,
             step:1,
             slide: function(event,ui){
-                document.getElementById("input-sessions").value=numberOfSessions=ui.value;
+                document.getElementById("input-sessions").value=ui.value;
+                numberOfSessions = ui.value;
                 resetTimer();
             }
         });
