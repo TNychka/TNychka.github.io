@@ -51,7 +51,7 @@ function update() {
             switch(currentSession){
                 case session.WORK: //work
                     sessionsRemaining--;
-                    session.BREAK = 1;
+                    currentSession = session.BREAK;
                     currentSessionTime = breakTime;
                     clock = breakTime;
                     $('.phase').text('Break Time');
