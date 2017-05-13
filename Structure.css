@@ -97,11 +97,14 @@ body{
 
 #slider-work {
     top: 10px;
+    margin-right: 30px;
     width: 500px;
 }
 
 #input-work {
-    width: 100px;
+    width: 50px;
+    color: black;
+    background-color: white;
 }
 
 #breakBar {
@@ -115,11 +118,14 @@ body{
 
 #slider-break {
     top: 10px;
+    margin-right: 30px;
     width: 500px;
 }
 
 #input-break {
-    width: 100px;
+    width: 50px;
+    color: black;
+    background-color: white;
 }
 
 #rewardBar {
@@ -133,11 +139,14 @@ body{
 
 #slider-reward {
     top: 10px;
+    margin-right: 30px;
     width: 500px;
 }
 
 #input-reward {
-    width: 100px;
+    width: 50px;
+    color: black;
+    background-color: white;
 }
 
 #sessionsBar {
@@ -151,11 +160,14 @@ body{
 
 #slider-sessions {
     top: 10px;
+    margin-right: 30px;
     width: 500px;
 }
 
 #input-sessions {
-    width: 100px;
+    width: 50px;
+    color: black;
+    background-color: white;
 }
 
 .about{
