@@ -246,7 +246,7 @@ function update() {
             settings=1;
             $(".clock").fadeOut("fast");
             $(".controls").fadeOut("fast");
-            $(".settings").delay(230).fadeIn("fast").attribute("display", "flex");
+            $(".settings").delay(230).fadeIn("fast").css("display", "flex");
         }
     });
 
