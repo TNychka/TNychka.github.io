@@ -42,26 +42,39 @@
 
 <div class="settings">
     <div class="sliders">
-        <label id="label-work">Work Length</label>
-        <div id="slider-work"></div>
-        <input id ="input-work" type="number" name="quantity" min="1" max="60">
+        <div id="workBar">
+            <label id="label-work">Work Length</label>
+            <div id="workSlider">
+                <div id="slider-work"></div>
+                <input id ="input-work" type="number" name="quantity" min="1" max="60">
+            </div>
+        </div>
+        <div id="breakBar">
+            <label id="label-break">Break Length</label>
+            <div id="breakSlider">
+                <div id="slider-break"></div>
+                <input id ="input-break" type="number" name="quantity" min="1" max="60">
+            </div>
+        </div>
+        <div id="rewardBar">
+            <label id="label-reward">Reward Length</label>
+            <div id="rewardSlider">
+                <div id="slider-reward"></div>
+                <input id ="input-reward" type="number" name="quantity" min="1" max="60">
+            </div>
+        </div>
+        <div id="sessionsBar">
+            <label id="label-session">Number of Sessions</label>
+            <div id="sessionsSlider">
+                <div id="slider-sessions"></div>
+                <input id ="input-sessions" type="number" name="quantity" min="1" max="10">
 
-        <label id="label-break">Break Length</label>
-        <div id="slider-break"></div>
-        <input id ="input-break" type="number" name="quantity" min="1" max="60">
-
-        <label id="label-reward">Reward Length</label>
-        <div id="slider-reward"></div>
-        <input id ="input-reward" type="number" name="quantity" min="1" max="60">
-
-        <label id="label-session">Number of Sessions</label>
-        <div id="slider-sessions"></div>
-        <input id ="input-sessions" type="number" name="quantity" min="1" max="10">
-
+            </div>
+        </div>
     </div>
     <div id="options">
-        <input id="checkbox" type="checkbox" name="continuous" value="cont"> Continuous Mode<br>
-        <input id="checkbox" type="checkbox" name="nightmode" value="cont"> Night Mode<br>
+        <input type="checkbox" name="continuous" value="cont"> Continuous Mode<br>
+        <input type="checkbox" name="nightmode" value="cont"> Night Mode<br>
     </div>
 </div>
 

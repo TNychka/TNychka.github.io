@@ -246,7 +246,7 @@ function update() {
             settings=1;
             $(".clock").fadeOut("fast");
             $(".controls").fadeOut("fast");
-            $(".settings").delay(230).fadeIn("fast");
+            $(".settings").delay(230).fadeIn("fast").attribute("display", "flex");
         }
     });
 
@@ -262,6 +262,7 @@ function update() {
                 resetTimer();
             }
         });
+
     $("#slider-break" ).slider(
         {
             value:5,

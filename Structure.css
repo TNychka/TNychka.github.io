@@ -3,7 +3,7 @@
 }
 
 body{
-	margin: 0px;
+	margin: 0;
     min-width: 500px;
     background-color: white;
     color: black;
@@ -16,9 +16,8 @@ body{
 }
 
 .navigation{
-    position: relative;
-	left: calc(50% - 80px);
-	width: 33%;
+    display: flex;
+	justify-content: center;
 }
 
 .clock{
@@ -54,7 +53,6 @@ body{
     top:-10px;
 }
 
-
 #progressBar{
 	display: block;
 	position: absolute;
@@ -64,11 +62,7 @@ body{
 
 .controls{
 	display: flex;
-    position: relative;
 	justify-content: center;
-    top: 250px;
-    width: 100%;
-
 }
 
 .controls .btn-lg{
@@ -76,87 +70,90 @@ body{
 	height:50px;
 }
 
-.settings{
-	display: none;
-	position: relative;
-	width: 50%;
-	left: 25%;
-	top: 50px;
+.settings {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
 }
 
-.settings #label-work{
-	position: absolute;
-	top: -10px;
-	left: 0%
-}
-.settings #label-break{
-	position: absolute;
-	top: 50px;
-	left: 0%
-}
-.settings #label-reward{
-	position: absolute;
-	top: 110px;
-	left: 0%
-}
-.settings #label-session{
-	position: absolute;
-	top: 170px;
-	left: 0%
+.sliders {
+    display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 
-.settings #slider-work{
-	position: relative;
-	top: 20px;
+#workBar {
+	padding-bottom: 30px;
 }
 
-.settings #slider-break{
-	position: relative;
-	top: 40px;
+#workSlider {
+    display: flex;
+    justify-content: space-between;
 }
 
-.settings #slider-reward{
-	position: relative;
-	top: 60px;
+#slider-work {
+    top: 10px;
+    width: 500px;
 }
 
-.settings #slider-sessions{
-	position: relative;
-	top: 80px;
+#input-work {
+    width: 100px;
 }
 
-.settings #input-work{
-	position: relative;
-	color: black;
-	left: 110%;
+#breakBar {
+    padding-bottom: 30px;
 }
 
-.settings #input-break{
-	position: relative;
-	color: black;
-	left: 110%;
-	top: 20px;
+#breakSlider {
+    display: flex;
+    justify-content: space-between;
 }
 
-.settings #input-reward{
-	position: relative;
-	color: black;
-	left: 110%;
-	top: 40px;
+#slider-break {
+    top: 10px;
+    width: 500px;
 }
 
-.settings #input-sessions{
-	position: relative;
-	color: black;
-	left: 110%;
-	top: 60px;
+#input-break {
+    width: 100px;
 }
 
-.settings #options{
-	position: absolute;
-	width: 150px;
-	top: 240px;
-	left: calc(50% - 60px);
+#rewardBar {
+    padding-bottom: 30px;
+}
+
+#rewardSlider {
+    display: flex;
+    justify-content: space-between;
+}
+
+#slider-reward {
+    top: 10px;
+    width: 500px;
+}
+
+#input-reward {
+    width: 100px;
+}
+
+#sessionsBar {
+    padding-bottom: 30px;
+}
+
+#sessionsSlider {
+    display: flex;
+    justify-content: space-between;
+}
+
+#slider-sessions {
+    top: 10px;
+    width: 500px;
+}
+
+#input-sessions {
+    width: 100px;
 }
 
 .about{
