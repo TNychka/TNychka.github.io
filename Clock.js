@@ -181,6 +181,9 @@ function update() {
                 clock=rewardTime;
                 break;
         }
+        fractionTimeRemaining=1;
+        updateProgress();
+        setEstimatedTimeRemaining();
         updateText();
     });
 
@@ -210,19 +213,19 @@ function update() {
         currentSessionTime=workTime;
         clock=workTime;
         sessionsRemaining=numberOfSessions;
+        fractionTimeRemaining=1;
+        updateProgress();
+        setEstimatedTimeRemaining();
         $('.phase').text("Work Time");
         $('.sessionRemaining').text("Sessions Remaining: "+numberOfSessions);
         $('.countDown').text((Math.floor(clock/60)>9?(""+Math.floor(clock/60)):("0"+Math.floor(clock/60)))+":"+(clock%60>9?""+clock%60:"0"+clock%60));
         $('.title').text("Focus Time: " + (Math.floor(clock/60)>9?(""+Math.floor(clock/60)):("0"+Math.floor(clock/60)))+":"+(clock%60>9?""+clock%60:"0"+clock%60));
         $('.pause').removeClass('active');
         $('.pause').blur();
-        $('.play').removeClass('active')
+        $('.play').removeClass('active');
         $('.play').blur();
-        $('.reset').removeClass('active')
+        $('.reset').removeClass('active');
         $('.reset').blur();
-        fractionTimeRemaining=100;
-        updateProgress();
-        setEstimatedTimeRemaining();
     }
 
     var settings=0;
