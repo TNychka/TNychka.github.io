@@ -63,7 +63,7 @@ function update() {
           $('.sessionRemaining').text("Sessions Remaining: " + clock.sessionsRemaining);
           break;
         case sessionEnum.BREAK: //break
-          if(sessionsRemaining>0){
+          if(clock.sessionsRemaining>0){
             clock.currentSessionState = sessionEnum.WORK;
             clock.currentSessionTime=clock.workTime;
             clock.clock=clock.workTime;
