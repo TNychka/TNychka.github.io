@@ -1,4 +1,5 @@
 "use strict";
+(function(){
 function update() {
 
   const sessionEnum = {
@@ -22,7 +23,7 @@ function update() {
     sessionsRemaining : 4,
   };
 
-  const alarm = new Audio('src/A-Tone-His_Self-1266414414.wav');
+  const alarm = new Audio('../lib/A-Tone-His_Self-1266414414.wav');
 
 
   $('.countDown').text((Math.floor(clock.clock/60)>9 ? (""+Math.floor(clock.clock/60)) : ("0"+Math.floor(clock.clock/60))) + ":" + (clock.clock%60>9 ? "" + clock.clock%60 : "0" + clock.clock%60));
@@ -97,13 +98,13 @@ function update() {
   function updateProgress(){
     if((clock.clock==0&&clock.currentSessionState==sessionEnum.WORK)||(clock.currentSessionState != sessionEnum.WORK && clock.clock == clock.currentSessionTime)){
       ctx.clearRect(0,0,370,370);
-      alarm.play();
     }else{
       ctx.putImageData(imd,0,0);
       ctx.beginPath();
       ctx.arc(185, 185, 170, -(quart), ((circ) * clock.fractionTimeRemaining) - quart, false);
       ctx.stroke();
     }
+    alarm.play();
   }
 
   function updateText() {
@@ -352,3 +353,4 @@ function update() {
 }
 
 $(document).ready(update);
+})();
