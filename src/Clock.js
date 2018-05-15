@@ -69,7 +69,7 @@ function update() {
             clock.currentSessionTime=clock.workTime;
             clock.clock=clock.workTime;
             $('.phase').text('Work Time');
-          }else{
+          } else {
             clock.currentSessionState=sessionEnum.REWARD;
             clock.currentSessionTime=clock.rewardTime;
             clock.clock=clock.rewardTime;
@@ -80,14 +80,14 @@ function update() {
           resetTimer();
           break;
       }
-      if (clock.continuous === false){
+      if (clock.continuous === false) {
         pause();
       }
-    } else{
+    } else {
       clock.clock--;
-      if (clock.currentSessionState === sessionEnum.WORK){
+      if (clock.currentSessionState === sessionEnum.WORK) {
         clock.fractionTimeRemaining=clock.clock/clock.currentSessionTime;
-      } else{
+      } else {
         clock.fractionTimeRemaining=(clock.currentSessionTime-clock.clock)/clock.currentSessionTime;
       }
     }
@@ -96,10 +96,12 @@ function update() {
   }
 
   function updateProgress(){
-    if((clock.clock==0&&clock.currentSessionState==sessionEnum.WORK)||(clock.currentSessionState != sessionEnum.WORK && clock.clock == clock.currentSessionTime)){
-      ctx.clearRect(0,0,370,370);
+    if (clock.clock == 0) {
+      if (clock.currentSessionState==sessionEnum.WORK) {
+        ctx.clearRect(0,0,370,370);
+      }
       alarm.play();
-    }else{
+    } else {
       ctx.putImageData(imd,0,0);
       ctx.beginPath();
       ctx.arc(185, 185, 170, -(quart), ((circ) * clock.fractionTimeRemaining) - quart, false);
