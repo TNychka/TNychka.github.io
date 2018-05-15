@@ -98,13 +98,13 @@ function update() {
   function updateProgress(){
     if((clock.clock==0&&clock.currentSessionState==sessionEnum.WORK)||(clock.currentSessionState != sessionEnum.WORK && clock.clock == clock.currentSessionTime)){
       ctx.clearRect(0,0,370,370);
+      alarm.play();
     }else{
       ctx.putImageData(imd,0,0);
       ctx.beginPath();
       ctx.arc(185, 185, 170, -(quart), ((circ) * clock.fractionTimeRemaining) - quart, false);
       ctx.stroke();
     }
-    alarm.play();
   }
 
   function updateText() {
