@@ -15,6 +15,11 @@ body{
     width: 100%;
 }
 
+.page-header h1{
+    display: inline-block;
+    border-bottom: 3px solid;
+}
+
 .navigation{
     display: flex;
 	justify-content: center;
@@ -171,8 +176,8 @@ body{
 }
 
 .about{
-	position: fixed;
+    position: fixed;
     left: 10px;
-	bottom: 3px;
-	width: 50px;
+    bottom: 3px;
+    display: inline-block;
 }
