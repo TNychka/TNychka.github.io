@@ -1,0 +1,3 @@
+[submodule "FocusTime"]
+	path = FocusTime
+	url = https://github.com/TNychka/FocusTime.git
