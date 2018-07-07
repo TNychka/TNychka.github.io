@@ -1,4 +1,0 @@
-Sessions remaining ui
-
-Overtime tracking
-Set title of task
