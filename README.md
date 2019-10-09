@@ -1,6 +1,6 @@
 # NychkaSite
-Personal website for me to show off all my projects, clearly I'm a backend dev
-though, so please over look the not so responsive UI.
+Personal website for me to show off all my projects. I specialize in backend dev
+though, so please ignore the UI.
 
 ## Contributing
 Please fork and submit pull requests for updates.
